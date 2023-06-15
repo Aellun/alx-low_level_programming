@@ -1,6 +1,6 @@
 #include<stdio.h>
 /**
-* main - Entry point
+* main - get the size of type on both 32bit and 64 bit machine
 *
 * Return: Always 0 (Success)
 */
