@@ -1,7 +1,9 @@
-#include <stdio.h>
-/** main - this program print the various sizeof 
- * Return: Always 0 (Success)
- */
+#include<stdio.h>
+/**
+* main - sizeof type
+*
+* Return: Always 0 (Success)
+*/
 int main(void)
 {
 	char n1;
