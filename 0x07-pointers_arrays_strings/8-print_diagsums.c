@@ -6,10 +6,10 @@
  * @a: Pointer to the start of the matrix
  * @size: Size of the matrix (number of rows or columns)
  *
- * This function calculates the sums of the main diagonal (top-left to bottom-right)
+ * This function calculates the sums of the main diagonal
  * and the secondary diagonal (top-right to bottom-left) of a square matrix.
- * The matrix is represented as a one-dimensional array, where elements are accessed
- * using row-major order. The sums are then printed in the format "sum1, sum2".
+ * The matrix is represented as a one-dimensional array,
+ *  using row-major order The sums are then printed in the format "sum1, sum2".
  */
 void print_diagsums(int *a, int size)
 {
