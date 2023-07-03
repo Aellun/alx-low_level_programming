@@ -5,7 +5,8 @@
  * that consists of only characters from a specified set
  * @s: input string
  * @accept: set of characters to compare against
- * Return: number of characters in `s` that consist of only characters from `accept`
+ * Return: number of characters in `s`
+ * that consist of only characters from `accept`
  */
 unsigned int _strspn(char *s, char *accept)
 {
