@@ -28,12 +28,13 @@ int _atoi(char *s)
 
 		if (s[i] >= '0' && s[i] <= '9') /*Check if the character is a digit*/
 		{
-			digit = s[i] - '0'; /*Convert the character to its corresponding digit value*/
+			digit = s[i] - '0'; /*Convert the char to its correlating digit value*/
 			if (d % 2)
 				digit = -digit; /*Handle negative numbers*/
 			n = n * 10 + digit; /*Calculate the integer value*/
 			f = 1;
-			if (s[i + 1] < '0' || s[i + 1] > '9') /*Check if the next character is not a digit*/
+			/*Check if the next char is not a digit*/
+			if (s[i + 1] < '0' || s[i + 1] > '9')
 				break;
 			f = 0;
 		}
@@ -57,7 +58,7 @@ int main(int argc, char *argv[])
 {
 	int result, num1, num2;
 
-	if (argc < 3 || argc > 3) /*Check if the number of arguments is not exactly 3*/
+	if (argc < 3 || argc > 3) /*Check if the number of arguments != 3*/
 	{
 		printf("Error\n");
 		return (1);
