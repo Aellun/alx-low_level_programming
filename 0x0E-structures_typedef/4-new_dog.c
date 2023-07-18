@@ -74,16 +74,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 
 /*Allocate memory for the name and owner strings using malloc*/
-	dog->name = malloc(sizeof(char) * (len1 + 1));
+	dog->name = malloc(len1 + 1);
 	if (dog->name == NULL)
 	{
 		free(dog);
 		return (NULL);
 	}
-	dog->owner = malloc(sizeof(char) * (len2 + 1));
+	dog->owner = malloc(len2 + 1);
 	if (dog->owner == NULL)
 	{
 		free(dog->name);
+		free(dog);
 		return (NULL);
 	}
 /*Copy  name, owner strings to the allocated memory using _strcpy function*/
