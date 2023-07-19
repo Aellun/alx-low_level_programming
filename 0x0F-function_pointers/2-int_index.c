@@ -12,14 +12,14 @@
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i;
-/* Check if the array or function pointer is NULL or if the size is non-positive*/
+/* Check if array or function pointer is NULL or if the size is non-positive*/
 	if (array == NULL || size <= 0 || cmp == NULL)
 /*If any of the above conditions are true, return -1.*/
 		return (-1);
 
 	for (i = 0; i < size; i++)
 	{
-/*Call the function pointed by 'cmp' on each element of the array. If the result is non-zero (true)*/
+/*Call the function pointed by 'cmp' on each element of the array*/
 		if (cmp(array[i]))
 			return (i);/*return the index of the element*/
 	}
