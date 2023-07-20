@@ -13,11 +13,9 @@ void print_all(const char * const format, ...)
 	char *sep = "";
 	va_list list;
 
-	/* Initialize the va_list variable with the number of arguments */
-	va_start(list, format);
+	va_start(list, format);/*Initialize va_list variable with number of arg*/
 
-	/* If format is not NULL, process the format string and print the values */
-	if (format)
+	if (format)/*If not NULL process the format string and print the values*/
 	{
 		while (format[i])
 		{
@@ -27,15 +25,16 @@ void print_all(const char * const format, ...)
 				case 'c':
 					printf("%s%c", sep, va_arg(list, int));
 					break;
-				case 'i':	
+				case 'i':
 					printf("%s%d", sep, va_arg(list, int));
 					break;
 				case 'f':
 					printf("%s%f", sep, va_arg(list, double));
 					break;
 				case 's':
-					{	
+					{
 						char *str = va_arg(list, char *);
+
 						printf("%s%s", sep, (str ? str : "(nil)"));
 					}
 					break;
@@ -44,16 +43,10 @@ void print_all(const char * const format, ...)
 					fprintf(stderr, "Unsupported format character: '%c'\n", format[i]);
 					break;
 			}
-
-			/* Set the separator to ", " to be used between elements */
-			sep = ", ";
+			sep = ", ";/* Set the separator to ", " to be used between elements */
 			i++;
 		}
 	}
-
-	/* Print a new line after printing all the values */
-	printf("\n");
-
-	/* Clean up and free the resources associated with the va_list */
-	va_end(list);
+	printf("\n");/* Print a new line after printing all the values */
+	va_end(list);/*Clean up and free the resources associated with the va_list*/
 }
