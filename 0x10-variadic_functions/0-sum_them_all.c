@@ -18,13 +18,14 @@ int sum_them_all(const unsigned int n, ...)
 
 	/* If the number of arguments is zero, return 0 */
 	if (n == 0)
-		return 0;
+		return (0);
 
 	/* Initialize the va_list variable with the number of arguments */
 	va_start(args, n);
 
 	/* Loop through each argument and calculate the sum */
-	for (i = 0; i < n; i++) {
+	for (i = 0; i < n; i++)
+	{
 		/* Retrieve the next argument using va_arg and store it in current_arg */
 		int current_arg = va_arg(args, int);
 
@@ -36,6 +37,6 @@ int sum_them_all(const unsigned int n, ...)
 	va_end(args);
 
 	/* Return the calculated sum */
-	return sum;
+	return (sum);
 }
 
