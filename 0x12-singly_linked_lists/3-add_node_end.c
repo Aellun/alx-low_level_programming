@@ -31,13 +31,13 @@ list_t *add_node_end(list_t **head, const char *str)
 	new->str = strdup(str);
 	/* Store the length of the new string in the new node */
 	new->len = len;
-	/* Set the "next" pointer of the new node to NULL as it will be the last node */
+	/*Set the "next" pointer of the new node to NULL as it will be the last node*/
 	new->next = NULL;
 
 	/* Check if the linked list is empty (head is NULL) */
 	if (*head == NULL)
 	{
-		/* If empty, set the head to point to the new node and return the new node */
+		/*If empty, set the head to point to the new node and return the new node*/
 		*head = new;
 		return (new);
 	}
