@@ -23,7 +23,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	if (ht == NULL || key == NULL || *key == '\0')
 		return (NULL);
 
-	i = key_index((const unsigned char *)key, ht->size);
+	j = key_index((const unsigned char *)key, ht->size);
 	if (j >= ht->size)
 		return (NULL);
 
