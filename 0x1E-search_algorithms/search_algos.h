@@ -38,6 +38,11 @@ typedef struct skiplist_s
 	struct skiplist_s *express;
 } skiplist_t;
 /**
+ * @array: Pointer to array 1st element
+ * @size: size of the array element
+ * @value: value to search for
+ * Return: NULL if value not present or array is NULL(return -1)
+ *
  * Project prototypes
  */
 int linear_search(int *array, size_t size, int value);
