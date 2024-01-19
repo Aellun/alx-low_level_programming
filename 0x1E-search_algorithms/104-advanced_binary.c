@@ -1,66 +1,63 @@
 #include "search_algos.h"
 
-int binary_search_recursion(int *array, int value,
-		size_t left, size_t right);
-
 /**
- * binary_search_recursion - helper to [advanced_binary] recursive searche
- * for a value in an integer array
- * @array: pointer to first element of array to seach
- * @value: value to search for
- * @left: starting index in array
- * @right: ending index in array
+ * rec_search - searches for a value in an array of
+ * integers using the Binary search algorithm
  *
- * Return: -1 If the value is not present or the array is NULL.
- *         else index value
+ *
+ * @array: A pointer to the first element of the array
+ * @size: size of the array element
+ * @value: value to search for
+ * Return: NULL if value not present or array is NULL(return -1)
  */
-int binary_search_recursion(int *array, int value,
-		size_t left, size_t right)
+int rec_search(int *array, size_t size, int value)
 {
-	size_t mid, m;
+	size_t half = size / 2;
+	size_t m;
 
-	if (!array)
+	if (array == NULL || size == 0)
 		return (-1);
 
-	mid = (left + right) / 2;
-	printf("Searching in array: ");
-	for (m = left; m <= right; m++)
-		printf("%m%s", array[m], m == right ? "\n" : ", ");
+	printf("Searching in array");
 
-	if (array[left] == value)
-		return ((int)left);
+	for (m = 0; m < size; m++)
+		printf("%s %d", (m == 0) ? ":" : ",", array[m]);
 
-	if (array[left] != array[right])
+	printf("\n");
+
+	if (half && size % 2 == 0)
+		half--;
+
+	if (value == array[half])
 	{
-		if (array[mid] < value)
-			return (binary_search_recursion(array, value,
-						mid + 1, right));
-		if (array[mid] >= value)
-			return (binary_search_recursion(array, value,
-						left, mid));
+		if (half > 0)
+			return (rec_search(array, half + 1, value));
+		return ((int)half);
 	}
 
-	return (-1);
+	if (value < array[half])
+		return (rec_search(array, half + 1, value));
+
+	half++;
+	return (rec_search(array + half, size - half, value) + half);
 }
 
 /**
- * advanced_binary - searches for a value in a sorted array of integers
- * using a binary search algorithm
- * @array: pointer to first element of array to search
- * @size: number of elements in array
+ * advanced_binary - calls to rec_search to return
+ * the index of the number
+ * @array: A pointer to the first element of the array
+ * @size: size of the array element
  * @value: value to search for
- *
- * Return: -1 If the value is not present or the array is NULL.
- *         else index value
+ * Return: NULL if value not present or array is NULL(return -1)
  */
-
 int advanced_binary(int *array, size_t size, int value)
 {
-	size_t left = 0;
-	size_t right = size - 1;
+	int index;
 
-	if (!array)
+	index = rec_search(array, size, value);
+
+	if (index >= 0 && array[index] != value)
 		return (-1);
 
-	return (binary_search_recursion(array, value, left, right));
+	return (index);
 }
